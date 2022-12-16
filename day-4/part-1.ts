@@ -10,17 +10,12 @@ inputArray.forEach(input => {
     const secondPairFirstItem = +input.split(',')[1].replace('\r', '').split('-')[0];
     const secondPairSecondItem = +input.split(',')[1].replace('\r', '').split('-')[1];
 
-    if (firstPairFirstItem >= secondPairFirstItem && firstPairSecondItem <= secondPairSecondItem) {
+    if (firstPairFirstItem >= secondPairFirstItem && firstPairSecondItem <= secondPairSecondItem || 
+        firstPairFirstItem <= secondPairFirstItem && firstPairSecondItem >= secondPairSecondItem) {
         console.log('--------------: ',input); // overlapping pairs
         counter ++;
+        return;
     }
-
-    else if (firstPairFirstItem <= secondPairFirstItem && firstPairSecondItem >= secondPairSecondItem) {
-        console.log('--------------: ', input); // overlapping pairs
-        counter ++;
-    } else {
-        console.log(input);
-    }
-
+    console.log(input);
 });
 console.log({ counter });
